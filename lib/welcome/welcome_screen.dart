@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../auth/register_role_screen.dart';
+import '../screens/auth/register_role_screen.dart';
 import '../components/elevated_button.dart';
 
 class WelcomeScreen extends StatefulWidget {

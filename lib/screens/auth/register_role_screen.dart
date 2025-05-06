@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/auth/register_driver.dart';
+import 'package:ride_now/screens/auth/register_driver.dart';
 import 'package:ride_now/components/app_bar.dart';
 import 'package:ride_now/components/elevated_button.dart';
 

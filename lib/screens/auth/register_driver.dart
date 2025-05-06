@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:ride_now/screens/auth/register_partner.dart';
 import 'package:ride_now/components/app_bar.dart';
 import 'package:ride_now/components/text_field.dart';
 
-import '../components/elevated_button.dart';
-import '../components/text_field_password.dart';
+import '../../components/elevated_button.dart';
+import '../../components/text_field_password.dart';
 import 'widgets/drop_down_button.dart';
 
 class RegisterDriver extends StatefulWidget {
@@ -18,12 +19,25 @@ class _RegisterDriverState extends State<RegisterDriver> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _licensePlateController = TextEditingController();
   bool isPasswordVisible = false;
-  List<String> vehicleTypes = [
-    'Xe máy',
-    'Ô tô',
+  List<String> loaixe = [
+    'Xe 4 chỗ',
+    'Xe 7 chỗ',
   ];
-  String? selectedVehicleType = 'Xe máy';
+  List<String> hangxe = [
+    'Hyundai',
+    'Toyota',
+    'Honda',
+  ];
+  List<String> mauxe = [
+    'Trắng',
+    'Đen',
+    'Đỏ',
+  ];
+  String? selectedVehicleType = 'Xe 4 chỗ';
+  String? selectedVehicleBrand = 'Hyundai';
+  String? selectedVehicleColor = 'Trắng';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +149,95 @@ class _RegisterDriverState extends State<RegisterDriver> {
                       Column(
                         children: [
                           Row(
-                            children: [],
+                            children: [
+                              Expanded(
+                                child: CustomDropdownButton(
+                                  label: 'Loại xe',
+                                  value: selectedVehicleType,
+                                  items: loaixe,
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      selectedVehicleType = newValue;
+                                    });
+                                  },
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 16.0,
+                              ),
+                              Expanded(
+                                child: CustomDropdownButton(
+                                  label: 'Hãng xe',
+                                  value: selectedVehicleBrand,
+                                  items: hangxe,
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      selectedVehicleBrand = newValue;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Row(
+                                      children: [
+                                        Text('Biển số xe ',
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            )),
+                                        Text('*',
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                              color: Colors.red,
+                                            )),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8.0),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        border: Border.all(
+                                            color: Colors.grey.shade300),
+                                      ),
+                                      child: TextFormField(
+                                        controller: _licensePlateController,
+                                        decoration: const InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 16.0,
+                              ),
+                              Expanded(
+                                child: CustomDropdownButton(
+                                  label: 'Màu xe',
+                                  value: selectedVehicleColor,
+                                  items: mauxe,
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      selectedVehicleColor = newValue;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       )
@@ -163,23 +265,23 @@ class _RegisterDriverState extends State<RegisterDriver> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegisterDriver(),
+                              builder: (context) => const RegisterPartner(),
                             ));
                       },
                       textColor: Colors.white,
                       fontSize: 18.0,
                     ),
                   ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text(
-                          'Bạn đã có tài khoản?',
-                          style: TextStyle(
-                            fontSize: 15.0,
-                          ),
+                      const Text(
+                        'Bạn đã có tài khoản? ',
+                        style: TextStyle(
+                          fontSize: 15.0,
                         ),
                       ),
                       GestureDetector(

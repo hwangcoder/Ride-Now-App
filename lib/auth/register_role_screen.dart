@@ -3,6 +3,7 @@ import 'package:ride_now/auth/register_driver.dart';
 import 'package:ride_now/components/app_bar.dart';
 import 'package:ride_now/components/elevated_button.dart';
 
+import '../components/app_bar.dart';
 import 'widgets/role_card.dart';
 
 class RegisterRoleScreen extends StatefulWidget {

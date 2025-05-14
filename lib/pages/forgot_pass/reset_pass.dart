@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ride_now/components/elevated_button.dart';
-import 'package:ride_now/components/text_field.dart';
+// import 'package:ride_now/components/text_field.dart';
 import 'package:ride_now/components/text_field_password.dart';
 import 'package:ride_now/pages/forgot_pass/change_pass_success.dart';
 
@@ -32,7 +32,7 @@ class _ResetPassState extends State<ResetPass> {
                       onTap: () => Navigator.pop(context),
                       child: GestureDetector(
                         onTap: () => Navigator.pop(context),
-                        child: SizedBox(
+                        child: const SizedBox(
                             width: 24.0,
                             height: 24.0,
                             child: Icon(
@@ -42,7 +42,7 @@ class _ResetPassState extends State<ResetPass> {
                             )),
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(right: 20.0),
                       child: Text(
                         "Cài lại mật khẩu",
@@ -52,15 +52,15 @@ class _ResetPassState extends State<ResetPass> {
                             color: Color(0xFF141414)),
                       ),
                     ),
-                    SizedBox()
+                    const SizedBox()
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
@@ -83,7 +83,7 @@ class _ResetPassState extends State<ResetPass> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Padding(
@@ -106,7 +106,7 @@ class _ResetPassState extends State<ResetPass> {
                       child: Icon(Icons.warning, size: 5.0, color: Color(0xFF636366),),
                     ),
                     const SizedBox(width: 4.0,),
-                    Expanded(
+                    const Expanded(
                       child: Text(
                         "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.",
                         style: TextStyle(
@@ -119,11 +119,11 @@ class _ResetPassState extends State<ResetPass> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
@@ -146,7 +146,7 @@ class _ResetPassState extends State<ResetPass> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Padding(
@@ -162,10 +162,10 @@ class _ResetPassState extends State<ResetPass> {
               child: Container(
                 width: 390.0,
                 height: 104.0,
-                padding: EdgeInsets.symmetric(horizontal: 16.0)
+                padding: const EdgeInsets.symmetric(horizontal: 16.0)
                     .copyWith(right: 50.0)
                     .copyWith(top: 8.0, bottom: 40.0),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFFBFCFF),
                   boxShadow: [
                     BoxShadow(
@@ -178,7 +178,7 @@ class _ResetPassState extends State<ResetPass> {
                 child: Column(
                   children: [
                     CustomElevatedButton(
-                        color: Color(0xFF2BC1BB),
+                        color: const Color(0xFF2BC1BB),
                         text: "Lưu mật khẩu mới",
                         onPressed: (){
                           Navigator.of(context).pushAndRemoveUntil(
@@ -186,7 +186,7 @@ class _ResetPassState extends State<ResetPass> {
                             (Route<dynamic> route) =>false
                           );
                         },
-                        textColor: Color(0xFFFFFFFF),
+                        textColor: const Color(0xFFFFFFFF),
                         fontSize: 18.0),
                   ],
                 ),

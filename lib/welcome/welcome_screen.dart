@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ride_now/screens/auth/login_role_screen.dart';
 
 import '../screens/auth/register_role_screen.dart';
 import '../components/elevated_button.dart';
@@ -47,7 +48,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 10),
                 const Spacer(),
                 CustomElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginRoleScreen(),
+                        ));
+                  },
                   text: 'Đăng Nhập',
                   color: Colors.black,
                   textColor: Colors.white,

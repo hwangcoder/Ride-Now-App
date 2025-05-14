@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ride_now/screens/auth/login_role_screen.dart';
 import 'package:ride_now/welcome/welcome_screen.dart';
+
+import 'screens/auth/login_driver_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

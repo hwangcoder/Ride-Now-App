@@ -17,7 +17,7 @@ class ForgotPass extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0)
-                .copyWith(top: MediaQuery.of(context).padding.top + 22.0),
+                    .copyWith(top: MediaQuery.of(context).padding.top + 22.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -74,11 +74,10 @@ class ForgotPass extends StatelessWidget {
                 height: 16.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: CustomTextField(
-                  controller: soDT,
-                )
-              ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: CustomTextField(
+                    controller: soDT,
+                  )),
               SizedBox(
                 height: 16.0,
               ),
@@ -96,13 +95,15 @@ class ForgotPass extends StatelessWidget {
           ),
           Positioned(
               bottom: 0.0,
+              right: 0.0,
+              left: 0.0,
               child: Container(
-                width: 390.0,
+                // width: 390.0,
                 height: 143.0,
-                padding: EdgeInsets.symmetric(horizontal: 16.0)
-                    .copyWith(right: 50.0)
+                padding: const EdgeInsets.symmetric(horizontal: 16.0)
+                    // .copyWith(right: 50.0)
                     .copyWith(top: 8.0, bottom: 40.0),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFFBFCFF),
                   boxShadow: [
                     BoxShadow(
@@ -119,32 +120,31 @@ class ForgotPass extends StatelessWidget {
                         text: "Tiếp tục",
                         onPressed: () {
                           Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) => const Nhapotp()), 
-                            (Route<dynamic> route) => true
-                          );
+                              MaterialPageRoute(
+                                  builder: (context) => const Nhapotp()),
+                              (Route<dynamic> route) => true);
                         },
                         textColor: Color(0xFFFFFFFF),
-                        fontSize: 18.0
+                        fontSize: 18.0),
+                    const SizedBox(
+                      height: 16.0,
                     ),
-                    SizedBox(height: 16.0,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Bạn chưa có tài khoản? ",
                           style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15.0,
-                            color: Color(0xFF636366)
-                          ),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15.0,
+                              color: Color(0xFF636366)),
                         ),
                         Text(
                           "Đăng ký ngay!",
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15.0,
-                            color: Color(0xFFFF1818)
-                          ),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 15.0,
+                              color: Color(0xFFFF1818)),
                         )
                       ],
                     )

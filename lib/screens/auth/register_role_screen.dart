@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ride_now/screens/auth/register_driver.dart';
 import 'package:ride_now/components/app_bar.dart';
 import 'package:ride_now/components/elevated_button.dart';
+import 'package:ride_now/screens/auth/register_partner.dart';
 
 import 'widgets/role_card.dart';
 
@@ -13,6 +14,25 @@ class RegisterRoleScreen extends StatefulWidget {
 }
 
 class _RegisterRoleScreenState extends State<RegisterRoleScreen> {
+  void _navigateBasedOnRole() {
+    final selectedRole = roleCardList.firstWhere((role) => role.isSelected);
+    if (selectedRole.title == 'Đối tác đặt xe') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const RegisterPartner(),
+        ),
+      );
+    } else if (selectedRole.title == 'Tài xế') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const RegisterDriver(),
+        ),
+      );
+    }
+  }
+
   final List<RoleCardModel> roleCardList = [
     RoleCardModel(
       title: 'Đối tác đặt xe',
@@ -92,11 +112,7 @@ class _RegisterRoleScreenState extends State<RegisterRoleScreen> {
                   text: 'Tiếp tục',
                   color: const Color(0xFF2BC1BB),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const RegisterDriver(),
-                        ));
+                    _navigateBasedOnRole();
                   },
                   textColor: Colors.white,
                   fontSize: 18.0,

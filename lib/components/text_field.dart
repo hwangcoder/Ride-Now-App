@@ -62,13 +62,12 @@ class CustomTextField extends StatelessWidget {
         border: outlineInputBorder(AppColor.boder),
         focusedBorder: outlineInputBorder(AppColor.brand),
         enabledBorder: outlineInputBorder(AppColor.boder),
-        errorBorder: outlineInputBorder(Colors.red),
+        errorBorder: outlineInputBorder(AppColor.boder),
         disabledBorder: outlineInputBorder(AppColor.boder),
         errorText: errorText,
         hintText: hintText,
         hintStyle: const TextStyle(color: AppColor.boder),
         prefixIcon: icon,
-        suffixIcon: suffixIcon,
       ),
     );
   }

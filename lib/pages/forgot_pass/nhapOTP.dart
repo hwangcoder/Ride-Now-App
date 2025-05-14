@@ -117,7 +117,7 @@ class _NhapotpState extends State<Nhapotp> {
                         border: Border.all(color: Color(0xFFFF1818)),
                         borderRadius: BorderRadius.circular(5.0)
                       ),
-                      child: Icon(Icons.warning, size: 5.0, color: Color(0xFFFF1818),),
+                      child: const Icon(Icons.error, size: 5.0, color: Color(0xFFFF1818),),
                     ),
                     Text(
                       "Nhập sai Mã OTP. Vui lòng thử lại!",

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ride_now/screens/auth/login_role_screen.dart';
 
 import '../screens/auth/register_role_screen.dart';
-import '../components/elevated_button.dart';
+import '../components/button/elevated_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/components/app_bar.dart';
+import 'package:ride_now/components/app_bar/app_bar.dart';
 import 'package:ride_now/screens/auth/register_active_screen.dart';
 
-import '../../components/elevated_button.dart';
-import '../../components/text_field.dart';
+import '../../../components/button/elevated_button.dart';
+import '../../../components/text_field/text_field.dart';
 
 class RegisterPartner extends StatefulWidget {
   const RegisterPartner({super.key});

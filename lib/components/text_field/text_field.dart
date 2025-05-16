@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../resources/app_color.dart';
+import '../../resources/theme/app_color.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -18,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.icon,
     this.suffixIcon,
     this.isPassword = false,
+    this.errorWidgetBuilder,
   });
 
   final TextEditingController? controller;
@@ -28,13 +29,12 @@ class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final TextInputAction? textInputAction;
   final FormFieldValidator<String>? validator;
+  final ErrorWidgetBuilder? errorWidgetBuilder;
   final bool readOnly;
   final String? errorText;
   final Icon? icon;
   final Icon? suffixIcon;
   final bool isPassword;
-
-  // Định nghĩa outlineInputBorder ngoài build để tối ưu
   static OutlineInputBorder outlineInputBorder(Color color) =>
       OutlineInputBorder(
         borderSide: BorderSide(color: color, width: 1.2),
@@ -69,6 +69,6 @@ class CustomTextField extends StatelessWidget {
         hintStyle: const TextStyle(color: AppColor.boder),
         prefixIcon: icon,
       ),
-    );
+    );  
   }
 }

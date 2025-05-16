@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/components/elevated_button.dart';
-import 'package:ride_now/components/text_field.dart';
+import 'package:ride_now/components/button/elevated_button.dart';
+import 'package:ride_now/components/text_field/text_field.dart';
 
 class LoginDt extends StatefulWidget {
-  const LoginDt({super.key});
-
+  const LoginDt({super.key, required this.title});
+  final String title;
   @override
   State<LoginDt> createState() => _LoginDtState();
 }
@@ -13,6 +13,7 @@ class _LoginDtState extends State<LoginDt> {
   final TextEditingController nameDT = TextEditingController();
   final TextEditingController sdt = TextEditingController();
   bool isLogin = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -191,9 +192,9 @@ class _LoginDtState extends State<LoginDt> {
                 color: Color(0xFFFBFCFF),
                 boxShadow: [
                   BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.05), // Màu bóng
-                    offset: Offset(0, 0), // Vị trí bóng (X, Y)
-                    blurRadius: 12, // Độ làm mờ
+                    color: Color.fromRGBO(0, 0, 0, 0.05),
+                    offset: Offset(0, 0),
+                    blurRadius: 12,
                   ),
                 ],
               ),
@@ -202,7 +203,9 @@ class _LoginDtState extends State<LoginDt> {
                   CustomElevatedButton(
                       color: const Color(0xFF2BC1BB),
                       text: "Tiếp tục",
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                       textColor: const Color(0xFFFFFFFF),
                       fontSize: 18.0),
                   const SizedBox(

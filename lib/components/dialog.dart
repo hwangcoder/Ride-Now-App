@@ -1,4 +1,4 @@
-import 'package:ride_now/resources/app_color.dart';
+import 'package:ride_now/resources/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
 class CustomAlertDialog extends StatelessWidget {

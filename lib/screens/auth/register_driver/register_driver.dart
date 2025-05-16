@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:ride_now/screens/auth/register_partner.dart';
-import 'package:ride_now/components/app_bar.dart';
-import 'package:ride_now/components/text_field.dart';
+import 'package:ride_now/screens/auth/register_partner/register_partner.dart';
+import 'package:ride_now/components/app_bar/app_bar.dart';
+import 'package:ride_now/components/text_field/text_field.dart';
 
-import '../../components/elevated_button.dart';
-import '../../components/text_field_password.dart';
-import 'widgets/drop_down_button.dart';
+import '../../../components/button/elevated_button.dart';
+import '../../../components/text_field/text_field_password.dart';
+import '../../../components/drop_down_button.dart';
 
 class RegisterDriver extends StatefulWidget {
   const RegisterDriver({super.key});

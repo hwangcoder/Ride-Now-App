@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final String? subtitle;
-  final double? height; // Chiều cao của AppBar
+  final double? height;
   const CustomAppBar(
       {super.key, this.title, this.subtitle, this.height = 127.0});
 

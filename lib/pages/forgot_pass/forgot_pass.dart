@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/components/elevated_button.dart';
-import 'package:ride_now/components/text_field.dart';
+import 'package:ride_now/components/button/elevated_button.dart';
+import 'package:ride_now/components/text_field/text_field.dart';
 import 'package:ride_now/pages/forgot_pass/nhapOTP.dart';
 
 class ForgotPass extends StatelessWidget {
@@ -18,7 +18,7 @@ class ForgotPass extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0)
                     .copyWith(top: MediaQuery.of(context).padding.top + 22.0),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
@@ -43,11 +43,11 @@ class ForgotPass extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
@@ -70,7 +70,7 @@ class ForgotPass extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Padding(
@@ -78,10 +78,10 @@ class ForgotPass extends StatelessWidget {
                   child: CustomTextField(
                     controller: soDT,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   "Mã OTP sẽ được gửi qua Số điện thoại đăng ký tài khoản để xác thực hành động cài lại mật khẩu.",
@@ -116,7 +116,7 @@ class ForgotPass extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomElevatedButton(
-                        color: Color(0xFF2BC1BB),
+                        color: const Color(0xFF2BC1BB),
                         text: "Tiếp tục",
                         onPressed: () {
                           Navigator.of(context).pushAndRemoveUntil(
@@ -124,12 +124,12 @@ class ForgotPass extends StatelessWidget {
                                   builder: (context) => const Nhapotp()),
                               (Route<dynamic> route) => true);
                         },
-                        textColor: Color(0xFFFFFFFF),
+                        textColor: const Color(0xFFFFFFFF),
                         fontSize: 18.0),
                     const SizedBox(
                       height: 16.0,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(

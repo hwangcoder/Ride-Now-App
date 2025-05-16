@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/screens/auth/register_driver.dart';
-import 'package:ride_now/components/app_bar.dart';
-import 'package:ride_now/components/elevated_button.dart';
-
-import '../../pages/forgot_pass/forgot_pass.dart';
-import 'login_driver_screen.dart';
-import 'login_partner_screen.dart';
-import 'widgets/role_card.dart';
+import 'package:ride_now/components/app_bar/app_bar.dart';
+import 'package:ride_now/components/button/elevated_button.dart';
+import 'login_driver/login_driver_screen.dart';
+import 'login_partner/login_partner_screen.dart';
+import '../../components/role_card.dart';
 
 class LoginRoleScreen extends StatefulWidget {
   const LoginRoleScreen({super.key});
@@ -22,14 +19,16 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginDt(),
+          builder: (context) => const LoginDt(title: '',),
         ),
       );
     } else if (selectedRole.title == 'Tài xế') {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginDriverScreen(),
+          builder: (context) =>  LoginDriverScreen(
+  
+          ),
         ),
       );
     }

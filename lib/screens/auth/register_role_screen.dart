@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/screens/auth/register_driver.dart';
-import 'package:ride_now/components/app_bar.dart';
-import 'package:ride_now/components/elevated_button.dart';
-import 'package:ride_now/screens/auth/register_partner.dart';
+import 'package:ride_now/screens/auth/register_driver/register_driver.dart';
+import 'package:ride_now/components/app_bar/app_bar.dart';
+import 'package:ride_now/components/button/elevated_button.dart';
+import 'package:ride_now/screens/auth/register_partner/register_partner.dart';
 
-import 'widgets/role_card.dart';
+import '../../components/role_card.dart';
 
 class RegisterRoleScreen extends StatefulWidget {
   const RegisterRoleScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ride_now/components/elevated_button.dart';
-import 'package:ride_now/components/text_field.dart';
+import 'package:ride_now/components/button/elevated_button.dart';
+import 'package:ride_now/components/text_field/text_field.dart';
 import 'package:ride_now/pages/forgot_pass/reset_pass.dart';
 
 class Nhapotp extends StatefulWidget {
@@ -19,21 +19,22 @@ class _NhapotpState extends State<Nhapotp> {
     super.initState();
     isOTP = true;
   }
-  void _validatorOTP(){
+
+  void _validatorOTP() {
     String otp = controllerOTP.text.trim();
-    if(otp == ''){
-       setState(() => isOTP = false);
-    }else{
+    if (otp == '') {
+      setState(() => isOTP = false);
+    } else {
       setState(() => isOTP = true);
       Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const ResetPass()), 
-        (Route<dynamic> route) => true
-      );
+          MaterialPageRoute(builder: (context) => const ResetPass()),
+          (Route<dynamic> route) => true);
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
+    return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Stack(children: [
@@ -47,7 +48,7 @@ class _NhapotpState extends State<Nhapotp> {
                   children: [
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
-                      child: SizedBox(
+                      child: const SizedBox(
                           width: 24.0,
                           height: 24.0,
                           child: Icon(
@@ -56,7 +57,7 @@ class _NhapotpState extends State<Nhapotp> {
                             color: Color(0xFF141414),
                           )),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(right: 20.0),
                       child: Text(
                         "Nhập mã OTP",
@@ -66,15 +67,15 @@ class _NhapotpState extends State<Nhapotp> {
                             color: Color(0xFF141414)),
                       ),
                     ),
-                    SizedBox()
+                    const SizedBox()
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
@@ -97,43 +98,46 @@ class _NhapotpState extends State<Nhapotp> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: CustomTextField(
-                  controller: controllerOTP,
-                )
-              ),
-              isOTP == true ? SizedBox() : Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 10.0,
-                      height: 10.0,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xFFFF1818)),
-                        borderRadius: BorderRadius.circular(5.0)
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: CustomTextField(
+                    controller: controllerOTP,
+                  )),
+              isOTP == true
+                  ? const SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 10.0,
+                            height: 10.0,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: const Color(0xFFFF1818)),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            child: const Icon(
+                              Icons.error,
+                              size: 5.0,
+                              color: Color(0xFFFF1818),
+                            ),
+                          ),
+                          const Text(
+                            "Nhập sai Mã OTP. Vui lòng thử lại!",
+                            style: TextStyle(
+                                color: Color(0xFFFF1818),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12.0),
+                          )
+                        ],
                       ),
-                      child: const Icon(Icons.error, size: 5.0, color: Color(0xFFFF1818),),
                     ),
-                    Text(
-                      "Nhập sai Mã OTP. Vui lòng thử lại!",
-                      style: TextStyle(
-                        color: Color(0xFFFF1818),
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12.0
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   "Mã xác minh đã được gửi qua Số điện thoại đăng ký tài khoản 0909090909.",
@@ -147,13 +151,14 @@ class _NhapotpState extends State<Nhapotp> {
           ),
           Positioned(
               bottom: 0.0,
+              right: 0.0,
+              left: 0.0,
               child: Container(
                 width: 390.0,
                 height: 104.0,
-                padding: EdgeInsets.symmetric(horizontal: 16.0)
-                    .copyWith(right: 50.0)
+                padding: const EdgeInsets.symmetric(horizontal: 16.0)
                     .copyWith(top: 8.0, bottom: 40.0),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFFBFCFF),
                   boxShadow: [
                     BoxShadow(
@@ -163,16 +168,12 @@ class _NhapotpState extends State<Nhapotp> {
                     ),
                   ],
                 ),
-                child: Column(
-                  children: [
-                    CustomElevatedButton(
-                        color: Color(0xFF2BC1BB),
-                        text: "Tiếp tục",
-                        onPressed:  _validatorOTP,
-                        textColor: Color(0xFFFFFFFF),
-                        fontSize: 18.0),
-                  ],
-                ),
+                child: CustomElevatedButton(
+                    color: const Color(0xFF2BC1BB),
+                    text: "Tiếp tục",
+                    onPressed: _validatorOTP,
+                    textColor: const Color(0xFFFFFFFF),
+                    fontSize: 18.0),
               ))
         ]),
       ),

@@ -7,7 +7,7 @@ class LoginDriverVm extends BaseViewModel {
   String errorPhoneNumberInput = '';
   String errorPasswordDriverInput = '';
   List<String> phonenumbers = [
-    "",
+    "0387878845",
   ];
   String password = "Hoang123@";
   void checkValidPhone(List<String> phoneNumbers) {
@@ -63,5 +63,6 @@ class LoginDriverVm extends BaseViewModel {
     checkValidPhone(phonenumbers);
     checkValidPassword(password);
     if (!validator) return;
+    
   }
 }

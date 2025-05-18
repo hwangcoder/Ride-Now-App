@@ -31,107 +31,134 @@ class LoginDriverScreen extends StackedView<LoginDriverVm> {
         title: "Đăng nhập",
         subTitle: "Cùng RideNow kiếm thu nhập nhé!",
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0)
+            .copyWith(top: MediaQuery.of(context).padding.top + 22.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              padding: const EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
-                color: const Color(0xFFFBFCFF),
-                borderRadius: BorderRadius.circular(16.0),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.05),
-                    offset: Offset(0, 0),
-                    blurRadius: 12,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFBFCFF),
+                    borderRadius: BorderRadius.circular(16.0),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.05),
+                        offset: Offset(0, 0),
+                        blurRadius: 12,
+                      ),
+                    ],
                   ),
-                ],
+                  child: Column(
+                    children: [
+                      Text(
+                        "Đăng nhập Tài xế",
+                        textAlign: TextAlign.center,
+                        style: AppStyles.kTextStyle20.copyWith(
+                          color: AppColors.color2BC1BB,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 16.0),
+                      AppTextField(
+                        controller: viewModel.phoneNumberController,
+                        label: "Số điện thoại",
+                        isRequired: true,
+                        textError: viewModel.errorPhoneNumberInput,
+                        onChanged: (_) =>
+                            viewModel.checkValidPhone(phonenumbers),
+                      ),
+                      const SizedBox(height: 20.0),
+                      AppTextField(
+                        controller: viewModel.passwordDriverController,
+                        isPassword: true,
+                        label: "Mật khẩu",
+                        isRequired: true,
+                        textError: viewModel.errorPasswordDriverInput,
+                        onChanged: (_) =>
+                            viewModel.checkValidPassword(password),
+                      ),
+                      const SizedBox(height: 10.0),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ForgotPass(),
+                              ),
+                            );
+                          },
+                          child: Text('Quên mật khẩu?',
+                              textAlign: TextAlign.right,
+                              style: AppStyles.kTextStyle16.copyWith(
+                                color: AppColors.color696969,
+                                fontStyle: FontStyle.italic,
+                              )),
+                        ),
+                      ),
+                      // const Spacer(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const Spacer(),
+            Container(
+              decoration: const BoxDecoration(
+                color: Color(0xFFFBFCFF),
               ),
               child: Column(
                 children: [
-                  Text(
-                    "Đăng nhập Tài xế",
-                    textAlign: TextAlign.center,
-                    style: AppStyles.kTextStyle20.copyWith(
-                      color: AppColors.color2BC1BB,
-                      fontWeight: FontWeight.w700,
-                    ),
+                  CustomElevatedButton(
+                    color: const Color(0xFF2BC1BB),
+                    text: "Tiếp tục",
+                    onPressed: () {
+                      viewModel.checkValidPhone(phonenumbers);
+                      viewModel.checkValidPassword(password);
+                      if (!viewModel.validator) return;
+                      viewModel.onContinue();
+                         Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const RegisterDriver(),
+                                ),
+                              );
+                    },
+                    textColor: const Color(0xFFFFFFFF),
+                    fontSize: 18.0,
                   ),
                   const SizedBox(height: 16.0),
-                  AppTextField(
-                    controller: viewModel.phoneNumberController,
-                    label: "Số điện thoại",
-                    isRequired: true,
-                    textError: viewModel.errorPhoneNumberInput,
-                    onChanged: (_) => viewModel.checkValidPhone(phonenumbers),
-                  ),
-                  const SizedBox(height: 20.0),
-                  AppTextField(
-                    controller: viewModel.passwordDriverController,
-                    isPassword: true,
-                    label: "Mật khẩu",
-                    isRequired: true,
-                    textError: viewModel.errorPasswordDriverInput,
-                    onChanged: (_) => viewModel.checkValidPassword(password),
-                  ),
-                  const SizedBox(height: 10.0),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ForgotPass(),
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: "Bạn chưa có tài khoản? ",
+                      style: AppStyles.kTextStyle16.copyWith(
+                        color: AppColors.color696969,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Đăng ký ngay!',
+                          style: AppStyles.kTextStyle15.copyWith(
+                            color: AppColors.red,
                           ),
-                        );
-                      },
-                      child: Text('Quên mật khẩu?',
-                          textAlign: TextAlign.right,
-                          style: AppStyles.kTextStyle16.copyWith(
-                            color: AppColors.color696969,
-                            fontStyle: FontStyle.italic,
-                          )),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const RegisterDriver(),
+                                ),
+                              );
+                            },
+                        ),
+                      ],
                     ),
-                  ),
-                  // const Spacer(),
-                ],
-              ),
-            ),
-            const SizedBox(height: 200),
-            CustomElevatedButton(
-              color: const Color(0xFF2BC1BB),
-              text: "Tiếp tục",
-              onPressed: viewModel.onContinue,
-              textColor: const Color(0xFFFFFFFF),
-              fontSize: 18.0,
-            ),
-            const SizedBox(height: 10),
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                text: "Bạn chưa có tài khoản? ",
-                style: AppStyles.kTextStyle16.copyWith(
-                  color: AppColors.color696969,
-                  fontWeight: FontWeight.w400,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Đăng ký ngay!',
-                    style: AppStyles.kTextStyle15.copyWith(
-                      color: AppColors.red,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RegisterDriver(),
-                          ),
-                        );
-                      },
                   ),
                 ],
               ),

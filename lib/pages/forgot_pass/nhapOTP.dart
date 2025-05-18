@@ -15,7 +15,7 @@ class _NhapotpState extends State<Nhapotp> {
   bool? isOTP;
   @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
     isOTP = true;
   }

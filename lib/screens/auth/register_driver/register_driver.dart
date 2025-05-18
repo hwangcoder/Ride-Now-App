@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:ride_now/screens/auth/register_active_screen.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:ride_now/screens/auth/register_partner/register_partner.dart';
 import 'package:ride_now/components/app_bar/app_bar.dart';
 import 'package:ride_now/components/text_field/text_field.dart';
@@ -265,7 +266,7 @@ class _RegisterDriverState extends State<RegisterDriver> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegisterPartner(),
+                              builder: (context) => const RegisterActiveScreen(),
                             ));
                       },
                       textColor: Colors.white,
